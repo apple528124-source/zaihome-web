@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ZAIHOME｜穿戴甲帶圖客製化訂製</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Noto+Serif+TC:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --white: #FFFFFF;
+    --off:   #F7F7F5;
+    --light: #EFEFED;
+    --mid:   #C8C8C4;
+    --gray:  #888884;
+    --dark:  #2E2E2C;
+    --black: #111110;
+    --accent:#555550;
+    --warn:  #7a6a30;
+  }
+
+- { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { background: var(–white); color: var(–black); font-family: ‘Noto Serif TC’, serif; font-weight: 300; overflow-x: hidden; }
+
+/* ── NAV ── */
+nav {
+position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+display: flex; justify-content: space-between; align-items: center;
+padding: 1.2rem 3.5rem;
+background: rgba(255,255,255,0.92);
+backdrop-filter: blur(16px);
+border-bottom: 1px solid var(–light);
+}
+.logo { font-family: ‘Cormorant Garamond’, serif; font-size: 1.5rem; letter-spacing: 0.3em; color: var(–black); text-decoration: none; font-weight: 400; text-transform: uppercase; }
+.nav-links { display: flex; gap: 2.5rem; list-style: none; }
+.nav-links a { font-size: 0.72rem; letter-spacing: 0.22em; color: var(–dark); text-decoration: none; opacity: 0.6; transition: opacity 0.3s; text-transform: uppercase; }
+.nav-links a:hover { opacity: 1; }
+
+/* ── HERO ── */
+#hero {
+min-height: 100vh; display: flex; align-items: center; justify-content: center;
+position: relative; overflow: hidden;
+background: var(–black);
+padding: 8rem 2rem 5rem;
+}
+.hero-grain {
+position: absolute; inset: 0; z-index: 0; opacity: 0.04;
+background-image: url(“data:image/svg+xml,%3Csvg viewBox=‘0 0 256 256’ xmlns=‘http://www.w3.org/2000/svg’%3E%3Cfilter id=‘noise’%3E%3CfeTurbulence type=‘fractalNoise’ baseFrequency=‘0.9’ numOctaves=‘4’ stitchTiles=‘stitch’/%3E%3C/filter%3E%3Crect width=‘100%25’ height=‘100%25’ filter=‘url(%23noise)’/%3E%3C/svg%3E”);
+background-size: 200px;
+}
+.hero-line-v {
+position: absolute; top: 0; bottom: 0; left: 50%; width: 1px;
+background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.06), transparent);
+}
+.hero-inner { text-align: center; position: relative; z-index: 1; max-width: 780px; }
+.hero-tag {
+display: inline-block; font-size: 0.65rem; letter-spacing: 0.45em;
+color: var(–mid); margin-bottom: 2rem;
+padding: 0.45rem 1.6rem; border: 1px solid rgba(255,255,255,0.15);
+text-transform: uppercase;
+animation: fadeUp 0.8s ease both;
+}
+h1 {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: clamp(3.5rem, 9vw, 7.5rem);
+font-weight: 300; line-height: 1.05;
+color: var(–white); margin-bottom: 0.25em;
+animation: fadeUp 0.9s 0.1s ease both;
+}
+h1 em { font-style: italic; color: var(–mid); }
+.hero-sub {
+font-size: 0.92rem; letter-spacing: 0.1em; line-height: 2.1;
+color: var(–mid); opacity: 0.8; margin-bottom: 3rem;
+animation: fadeUp 1s 0.2s ease both;
+}
+.hero-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; animation: fadeUp 1s 0.3s ease both; }
+.btn-primary {
+display: inline-flex; align-items: center; gap: 0.6rem;
+background: var(–white); color: var(–black);
+padding: 1rem 2.6rem; font-size: 0.78rem; letter-spacing: 0.25em;
+text-decoration: none; text-transform: uppercase;
+font-family: ‘Noto Serif TC’, serif;
+transition: background 0.3s, color 0.3s, transform 0.3s;
+border: 1px solid var(–white);
+}
+.btn-primary:hover { background: var(–black); color: var(–white); transform: translateY(-2px); }
+.btn-ghost {
+display: inline-block; background: transparent; color: var(–mid);
+border: 1px solid rgba(255,255,255,0.25); padding: 1rem 2.2rem;
+font-size: 0.78rem; letter-spacing: 0.25em; text-decoration: none; text-transform: uppercase;
+transition: border-color 0.3s, color 0.3s, transform 0.3s;
+}
+.btn-ghost:hover { border-color: var(–white); color: var(–white); transform: translateY(-2px); }
+
+/* ── SECTION BASE ── */
+section { padding: 8rem 2rem; }
+.container { max-width: 1040px; margin: 0 auto; }
+.sec-label { font-size: 0.65rem; letter-spacing: 0.45em; text-transform: uppercase; color: var(–gray); margin-bottom: 0.8rem; }
+.sec-title { font-family: ‘Cormorant Garamond’, serif; font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 300; line-height: 1.2; color: var(–black); margin-bottom: 1.2rem; }
+.divider { width: 40px; height: 1px; background: var(–mid); margin: 1.4rem 0; }
+
+/* ── ABOUT ── */
+#about { background: var(–off); }
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; }
+.about-text p { font-size: 0.93rem; line-height: 2.1; color: var(–dark); opacity: 0.8; margin-bottom: 1rem; }
+.about-features { list-style: none; margin-top: 1.8rem; }
+.about-features li {
+display: flex; align-items: flex-start; gap: 1rem;
+font-size: 0.86rem; letter-spacing: 0.04em; padding: 0.7rem 0;
+border-bottom: 1px solid var(–light); color: var(–dark); line-height: 1.7;
+}
+.about-features li::before { content: ‘01’; font-family: ‘Cormorant Garamond’, serif; font-size: 0.7rem; color: var(–mid); flex-shrink: 0; margin-top: 0.1rem; letter-spacing: 0.05em; }
+.about-features li:nth-child(2)::before { content: ‘02’; }
+.about-features li:nth-child(3)::before { content: ‘03’; }
+.about-features li:nth-child(4)::before { content: ‘04’; }
+.about-features li:nth-child(5)::before { content: ‘05’; }
+.about-visual { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
+.nail-card {
+aspect-ratio: 1; display: flex; align-items: center; justify-content: center;
+font-size: 2.5rem;
+}
+.nail-card:nth-child(1) { background: var(–black); }
+.nail-card:nth-child(2) { background: var(–light); margin-top: 2rem; }
+.nail-card:nth-child(3) { background: var(–mid); margin-bottom: 2rem; }
+.nail-card:nth-child(4) { background: var(–dark); }
+
+/* ── PROCESS ── */
+#process { background: var(–white); }
+.process-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 4rem; }
+.steps { display: grid; grid-template-columns: repeat(5,1fr); position: relative; }
+.steps::before { content: ‘’; position: absolute; top: 2.8rem; left: 2rem; right: 2rem; height: 1px; background: var(–light); z-index: 0; }
+.step { padding: 0 1.2rem 2.5rem 0; position: relative; z-index: 1; }
+.step-dot {
+width: 10px; height: 10px; border-radius: 50%;
+background: var(–black); margin-bottom: 1.8rem;
+border: 2px solid var(–white); box-shadow: 0 0 0 1px var(–mid);
+position: relative; z-index: 2;
+}
+.step-num {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 0.7rem; letter-spacing: 0.3em; color: var(–mid);
+margin-bottom: 0.6rem; text-transform: uppercase;
+}
+.step h3 { font-size: 0.9rem; letter-spacing: 0.08em; color: var(–black); margin-bottom: 0.7rem; font-weight: 500; }
+.step p { font-size: 0.8rem; line-height: 1.9; color: var(–dark); opacity: 0.65; }
+.step-badge {
+display: inline-block; margin-top: 0.8rem;
+font-size: 0.7rem; color: var(–accent);
+background: var(–light); padding: 0.25rem 0.7rem;
+letter-spacing: 0.08em;
+}
+.step .order-link {
+display: inline-block; margin-top: 0.9rem; font-size: 0.75rem;
+letter-spacing: 0.1em; color: var(–black); text-decoration: none;
+border-bottom: 1px solid var(–mid); padding-bottom: 1px;
+transition: border-color 0.3s, opacity 0.3s;
+}
+.step .order-link:hover { border-color: var(–black); opacity: 0.7; }
+.step-highlight .step-dot { background: var(–black); box-shadow: 0 0 0 3px var(–light), 0 0 0 4px var(–mid); }
+.step-highlight h3 { color: var(–black); }
+
+/* ── LINE CTA ── */
+#contact {
+background: var(–black);
+text-align: center; position: relative; overflow: hidden;
+}
+#contact::before {
+content: ‘’; position: absolute; inset: 0;
+background: radial-gradient(ellipse at 50% 100%, rgba(200,200,196,0.05), transparent 60%);
+}
+#contact .container { position: relative; z-index: 1; }
+#contact .sec-label { color: var(–gray); }
+#contact .sec-title { color: var(–white); }
+#contact .divider { background: rgba(255,255,255,0.15); margin: 1.4rem auto; }
+.contact-desc { font-size: 0.92rem; line-height: 2.2; color: var(–mid); max-width: 460px; margin: 0 auto 3rem; }
+.line-btn {
+display: inline-flex; align-items: center; gap: 0.8rem;
+background: #06C755; color: white;
+padding: 1.1rem 3.2rem; font-size: 0.84rem; letter-spacing: 0.22em;
+text-decoration: none; font-family: ‘Noto Serif TC’, serif;
+transition: transform 0.3s, box-shadow 0.3s, filter 0.3s;
+}
+.line-btn:hover { transform: translateY(-3px); box-shadow: 0 14px 40px rgba(6,199,85,0.3); filter: brightness(1.05); }
+
+/* ── NOTICE ── */
+#notice { background: var(–off); }
+.notice-banner {
+background: var(–black); color: var(–mid);
+padding: 1rem 2rem; font-size: 0.8rem;
+letter-spacing: 0.12em; margin-bottom: 3rem;
+display: flex; align-items: center; gap: 0.8rem;
+border-left: 3px solid var(–gray);
+}
+.notice-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1px; background: var(–light); }
+.notice-card { padding: 2rem 2.2rem; background: var(–off); }
+.notice-card.dark-card { background: var(–black); }
+.notice-card h4 {
+font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase;
+color: var(–gray); margin-bottom: 1rem;
+padding-bottom: 0.8rem; border-bottom: 1px solid var(–light);
+}
+.notice-card.dark-card h4 { color: var(–mid); border-bottom-color: rgba(255,255,255,0.1); }
+.notice-card.warn-card h4 { color: var(–warn); }
+.notice-card ul { list-style: none; }
+.notice-card ul li { font-size: 0.85rem; line-height: 2; color: var(–dark); opacity: 0.78; padding-left: 1.2rem; position: relative; }
+.notice-card ul li::before { content: ‘—’; position: absolute; left: 0; color: var(–mid); }
+.notice-card.dark-card ul li { color: var(–mid); opacity: 0.8; }
+.notice-card .tip {
+margin-top: 1rem; font-size: 0.8rem; padding: 0.7rem 1rem;
+background: rgba(0,0,0,0.04); color: var(–accent);
+letter-spacing: 0.05em; line-height: 1.8; border-left: 2px solid var(–mid);
+}
+.notice-card.dark-card .tip { background: rgba(255,255,255,0.04); color: var(–mid); border-left-color: var(–gray); }
+
+/* ── FAQ ── */
+#faq { background: var(–white); }
+.faq-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 6rem; }
+.faq-list { }
+.faq-item { border-bottom: 1px solid var(–light); padding: 1.4rem 0; cursor: pointer; }
+.faq-q { display: flex; justify-content: space-between; align-items: center; font-size: 0.88rem; letter-spacing: 0.05em; color: var(–dark); font-weight: 500; line-height: 1.6; }
+.faq-icon { font-size: 1rem; color: var(–gray); transition: transform 0.3s; flex-shrink: 0; margin-left: 1.2rem; }
+.faq-item.open .faq-icon { transform: rotate(45deg); color: var(–black); }
+.faq-a { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; font-size: 0.84rem; line-height: 2.1; color: var(–dark); opacity: 0.68; }
+.faq-item.open .faq-a { max-height: 250px; padding-top: 0.9rem; }
+.faq-side { padding-top: 0.5rem; }
+.faq-side-title { font-family: ‘Cormorant Garamond’, serif; font-size: clamp(2.2rem, 3.5vw, 3rem); font-weight: 300; line-height: 1.25; color: var(–black); margin-bottom: 1.5rem; }
+.faq-side p { font-size: 0.88rem; line-height: 2; color: var(–dark); opacity: 0.65; margin-bottom: 1.8rem; }
+.faq-cta {
+display: inline-flex; align-items: center; gap: 0.6rem;
+font-size: 0.76rem; letter-spacing: 0.2em; text-transform: uppercase;
+color: var(–black); text-decoration: none;
+border-bottom: 1px solid var(–mid); padding-bottom: 3px;
+transition: border-color 0.3s;
+}
+.faq-cta:hover { border-color: var(–black); }
+
+/* ── FOOTER ── */
+footer {
+background: var(–black); color: var(–white);
+padding: 3rem 3.5rem; display: flex; justify-content: space-between; align-items: center;
+flex-wrap: wrap; gap: 1.5rem;
+}
+.footer-brand { font-family: ‘Cormorant Garamond’, serif; font-size: 1.3rem; letter-spacing: 0.3em; opacity: 0.85; }
+.footer-right { text-align: right; }
+.footer-right p { font-size: 0.72rem; letter-spacing: 0.15em; opacity: 0.4; line-height: 2; }
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+.reveal { opacity: 0; transform: translateY(26px); transition: opacity 0.75s ease, transform 0.75s ease; }
+.reveal.visible { opacity: 1; transform: none; }
+
+/* ── MOBILE ── */
+@media (max-width: 900px) {
+nav { padding: 1rem 1.5rem; }
+.nav-links { display: none; }
+.about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+.about-visual { display: none; }
+.steps { grid-template-columns: 1fr; }
+.steps::before { display: none; }
+.step { padding: 1.5rem 0; border-bottom: 1px solid var(–light); }
+.step-dot { margin-bottom: 1rem; }
+.faq-grid { grid-template-columns: 1fr; gap: 2rem; }
+.faq-side { order: -1; }
+footer { flex-direction: column; text-align: center; padding: 2rem; }
+.footer-right { text-align: center; }
+.hero-btns { flex-direction: column; align-items: center; }
+}
+</style>
+
+</head>
+<body>
+
+<!-- NAV -->
+
+<nav>
+  <a class="logo" href="#">ZAIHOME</a>
+  <ul class="nav-links">
+    <li><a href="#about">關於服務</a></li>
+    <li><a href="#process">訂製流程</a></li>
+    <li><a href="#notice">訂製須知</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#contact">詢價</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+
+<section id="hero">
+  <div class="hero-grain"></div>
+  <div class="hero-line-v"></div>
+  <div class="hero-inner">
+    <div class="hero-tag">Wearable Nail &nbsp;·&nbsp; Custom Design</div>
+    <h1>穿戴甲<br><em>帶圖訂製</em></h1>
+    <p class="hero-sub">
+      傳送款式圖 ＆ 甲型 ＆ 尺碼<br>
+      ZAIHOME 為你打造獨一無二的指尖藝術
+    </p>
+    <div class="hero-btns">
+      <a href="https://lin.ee/nzX9Pp3" target="_blank" class="btn-primary">
+        💬&nbsp; LINE@ 傳圖詢價
+      </a>
+      <a href="#process" class="btn-ghost">了解訂製流程</a>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <div class="sec-label">About ZAIHOME</div>
+        <h2 class="sec-title">什麼是<br>帶圖訂製穿戴甲？</h2>
+        <div class="divider"></div>
+        <p>穿戴甲是一種可重複穿戴、隨時拆卸的美甲方式，不傷自然甲、使用方便，深受忙碌女孩喜愛。</p>
+        <p>ZAIHOME 帶圖訂製服務讓你把心目中的設計交給我，無論是 Pinterest 截圖、IG 靈感圖或自行繪製草稿，都能轉化為專屬你的指尖藝術。</p>
+        <ul class="about-features">
+          <li>每副皆為手工製作，非機器大量生產</li>
+          <li>量身取型，貼合你的甲型與尺碼</li>
+          <li>複雜手繪、亮粉、立體裝飾皆可接受</li>
+          <li>正確使用可重複配戴，環保又划算</li>
+          <li>我們希望每一副都是你曾想一直戴的款式</li>
+        </ul>
+      </div>
+      <div class="about-visual reveal">
+        <div class="nail-card">💅</div>
+        <div class="nail-card">✨</div>
+        <div class="nail-card">🌸</div>
+        <div class="nail-card">🎀</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+
+<section id="process">
+  <div class="container">
+    <div class="process-header reveal">
+      <div>
+        <div class="sec-label">Custom Order · How It Works</div>
+        <h2 class="sec-title">穿戴甲訂製流程</h2>
+      </div>
+    </div>
+    <div class="steps">
+      <div class="step reveal">
+        <div class="step-dot"></div>
+        <div class="step-num">Step 01</div>
+        <h3>傳送款式圖</h3>
+        <p>透過 LINE@ 傳送欲訂製款式圖、甲型及 10 指尺碼，越詳細越好。</p>
+        <a href="https://lin.ee/nzX9Pp3" target="_blank" class="order-link">LINE@ 傳圖 →</a>
+      </div>
+      <div class="step reveal">
+        <div class="step-dot"></div>
+        <div class="step-num">Step 02</div>
+        <h3>客服溝通報價</h3>
+        <p>等待客服與您溝通款式細節，確認無誤後提供專屬報價。</p>
+      </div>
+      <div class="step step-highlight reveal">
+        <div class="step-dot"></div>
+        <div class="step-num">Step 03</div>
+        <h3>官網下單製作</h3>
+        <p>確認報價後至官網下單，依排單順序開始製作。</p>
+        <div class="step-badge">約 3–10 日完成</div>
+        <a href="https://zaihome.shopstore.tw/item/Shopee69c541627d2a3" target="_blank" class="order-link" style="display:block;margin-top:0.7rem;">前往官網下單 →</a>
+      </div>
+      <div class="step reveal">
+        <div class="step-dot"></div>
+        <div class="step-num">Step 04</div>
+        <h3>拍照確認調整</h3>
+        <p>製作完成後拍照給你確認，提供 1 次調整機會。</p>
+      </div>
+      <div class="step reveal">
+        <div class="step-dot"></div>
+        <div class="step-num">Step 05</div>
+        <h3>完成並出貨</h3>
+        <p>確認無誤後完成訂製，出貨並提供物流單號 💅</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LINE CTA -->
+
+<section id="contact">
+  <div class="container reveal">
+    <div class="sec-label">Contact · ZAIHOME</div>
+    <h2 class="sec-title">準備好了嗎？<br>傳圖給我吧</h2>
+    <div class="divider"></div>
+    <p class="contact-desc">
+      點擊下方按鈕加入 ZAIHOME LINE@<br>
+      傳送款式圖、甲型與 10 指尺碼<br>
+      等待客服與您溝通並提供專屬報價
+    </p>
+    <a href="https://lin.ee/nzX9Pp3" target="_blank" class="line-btn">
+      💬&nbsp; ZAIHOME LINE@ 傳圖詢價
+    </a>
+  </div>
+</section>
+
+<!-- NOTICE -->
+
+<section id="notice">
+  <div class="container">
+    <div class="reveal">
+      <div class="sec-label">Custom Order Notice</div>
+      <h2 class="sec-title">訂製須知</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="notice-banner reveal">
+      📌&nbsp;&nbsp;下單前請詳閱，購買即視為同意以下所有內容
+    </div>
+    <div class="notice-grid">
+      <div class="notice-card dark-card warn-card reveal">
+        <h4>⚠ 尺寸相關（最重要）</h4>
+        <ul>
+          <li>本店為「客製化商品」，尺寸需由買家自行測量提供</li>
+          <li>請務必依照教學正確測量「10 指甲面寬度」</li>
+          <li>若尺寸填寬錯誤，恕無法退換貨</li>
+          <li>如不確定尺寸，建議先購買「測量甲片」再訂製</li>
+        </ul>
+        <div class="tip">👉 寧可稍微大一點也不要過小</div>
+      </div>
+      <div class="notice-card reveal">
+        <h4>訂製商品特性</h4>
+        <ul>
+          <li>每副皆為「手工製作」，非機器大量生產</li>
+          <li>可能存在些微差異（如：量染紋路、亮粉分佈）</li>
+          <li>與示意圖不會 100% 完全一致，但會保持整體風格</li>
+        </ul>
+      </div>
+      <div class="notice-card reveal">
+        <h4>製作時間</h4>
+        <ul>
+          <li>製作時間：約 3–10 天（不含假日 / 物流）</li>
+          <li>訂單依照排單順序製作，不接急單</li>
+          <li>特殊節日（過年 / 活動）時間可能延長</li>
+        </ul>
+      </div>
+      <div class="notice-card reveal">
+        <h4>運費與付款方式</h4>
+        <ul>
+          <li>超商取貨運費：65 元</li>
+          <li>單筆滿 599 元免運費</li>
+          <li>付款方式：街口支付 / 貨到付款 / ATM 轉帳</li>
+          <li>均透過官網下單完成支付</li>
+        </ul>
+      </div>
+      <div class="notice-card dark-card warn-card reveal">
+        <h4>⚠ 退換貨政策（重點）</h4>
+        <ul>
+          <li>客製化商品「不適用 7 天鑑賞期」</li>
+          <li>不接受退換：尺寸不合（自行測量）、個人喜好、細節差異（手工正常範圍）</li>
+          <li>可協助處理：商品嚴重瑕疵、出貨錯誤</li>
+        </ul>
+        <div class="tip">📸 必須於收貨「48 小時內」提供開箱影片 / 照片</div>
+      </div>
+      <div class="notice-card reveal">
+        <h4>使用保存與其他</h4>
+        <ul>
+          <li>避免長時間泡水、碰撞，配戴前保持甲面乾燥</li>
+          <li>正確使用可重複配戴</li>
+          <li>訂製商品無法取消訂單（已排單製作）</li>
+          <li>如未回覆確認訊息，將依原設計直接出貨</li>
+          <li>下單即代表同意以上所有內容</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+
+<section id="faq">
+  <div class="container">
+    <div class="faq-grid">
+      <div class="faq-side reveal">
+        <div class="sec-label">FAQ</div>
+        <div class="faq-side-title">常見<br>問題</div>
+        <p>找不到答案？歡迎直接透過 LINE@ 詢問，我們會盡快回覆。</p>
+        <a href="https://lin.ee/nzX9Pp3" target="_blank" class="faq-cta">LINE@ 聯絡我們 →</a>
+      </div>
+      <div class="faq-list reveal">
+        <div class="faq-item">
+          <div class="faq-q">可以傳哪種圖給你？<span class="faq-icon">+</span></div>
+          <div class="faq-a">任何參考圖都可以！Pinterest 截圖、IG 圖片、手繪草稿、文字描述皆可，越詳細越好。若有多張參考圖請一次傳送，並說明最希望保留的元素。</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">第一次不知道尺寸怎麼辦？<span class="faq-icon">+</span></div>
+          <div class="faq-a">建議先購買「測量甲片」確認尺寸後再訂製，也可於 LINE@ 詢問，我們提供量測教學說明。記得寧可稍微大一點也不要選過小的尺寸。</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">製作需要多久時間？<span class="faq-icon">+</span></div>
+          <div class="faq-a">一般製作時間約 3–10 天（不含假日及物流時間），訂單依排單順序製作，不接急單。特殊節日前後可能延長，建議提早預訂。</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">成品和示意圖差很多怎麼辦？<span class="faq-icon">+</span></div>
+          <div class="faq-a">手工製作每副皆有些微差異（如量染紋路、亮粉分佈），屬正常範圍。製作完成後會拍照給你確認，並提供一次調整機會。</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">可以退換貨嗎？<span class="faq-icon">+</span></div>
+          <div class="faq-a">客製化商品不適用 7 天鑑賞期。若有商品嚴重瑕疵或出貨錯誤，請於收貨 48 小時內提供開箱影片 / 照片聯繫我們處理。</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">如何付款？運費是多少？<span class="faq-icon">+</span></div>
+          <div class="faq-a">確認報價後至官網下單，支援街口支付、貨到付款及 ATM 轉帳。超商取貨運費 65 元，單筆消費滿 599 元免運費。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+  <div class="footer-brand">ZAIHOME</div>
+  <div class="footer-right">
+    <p>穿戴甲帶圖客製化訂製服務</p>
+    <p>LINE@ 詢價 → 官網下單 → 拍照確認 → 安心收貨</p>
+  </div>
+</footer>
+
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 65);
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.07 });
+  reveals.forEach(el => io.observe(el));
+
+  document.querySelectorAll('.faq-item').forEach(item => {
+    item.querySelector('.faq-q').addEventListener('click', () => {
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+</script>
+
+</body>
+</html>
