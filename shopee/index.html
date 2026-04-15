@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+
+<html lang="zh-TW" style="color-scheme:light;">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light only">
+<title>ZAIHOME｜穿戴甲帶圖客製化訂製</title>
+<style>
+  @media (prefers-color-scheme: dark) {
+    html { filter: none !important; }
+    body, div, section, p, h1, h2, h3, h4, span, ul, li {
+      background-color: unset;
+      color: unset;
+    }
+  }
+
+- { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body {
+background: #F8F8F6 !important;
+color: #1A1A18 !important;
+color-scheme: light !important;
+}
+
+body {
+font-family: ‘Noto Serif TC’, ‘Noto Serif’, Georgia, serif;
+font-weight: 300;
+max-width: 800px;
+margin: 0 auto;
+}
+
+/* ── HERO ── */
+.hero {
+background: #F8F8F6 !important;
+border-bottom: 1px solid #E0E0DE;
+padding: 3.5rem 2rem 3rem;
+text-align: center;
+}
+.hero-tag {
+display: inline-block;
+font-size: 0.58rem; letter-spacing: 0.42em; text-transform: uppercase;
+color: #888884 !important; margin-bottom: 1.4rem;
+padding: 0.35rem 1.2rem;
+border: 1px solid #BEBEBA;
+}
+.hero h1 {
+font-family: Georgia, serif;
+font-size: clamp(2.6rem, 8vw, 4.5rem);
+font-weight: 300; line-height: 1.1;
+color: #1A1A18 !important; margin-bottom: 0.2em;
+}
+.hero h1 em { font-style: italic; color: #888884 !important; }
+.hero-sub {
+font-size: 0.88rem; letter-spacing: 0.08em; line-height: 2.1;
+color: #444440 !important; margin-top: 1.1rem;
+}
+
+/* ── LINE 小標 ── */
+.line-tiny {
+margin: 1.4rem 2rem 0;
+padding: 0.65rem 1.2rem;
+background: #FFFFFF !important;
+border: 1px solid #E0E0DE;
+display: flex; align-items: center; gap: 0.7rem;
+justify-content: center;
+}
+.lt-dot { width: 7px; height: 7px; border-radius: 50%; background: #06C755 !important; flex-shrink: 0; }
+.lt-text { font-size: 0.75rem; letter-spacing: 0.1em; color: #888884 !important; }
+.lt-id { font-size: 0.78rem; letter-spacing: 0.1em; color: #444440 !important; font-weight: 500; }
+
+/* ── SECTION ── */
+.sec { padding: 2.8rem 2rem; background: #FFFFFF !important; }
+.sec-alt { padding: 2.8rem 2rem; background: #F8F8F6 !important; border-top: 1px solid #E8E8E6; border-bottom: 1px solid #E8E8E6; }
+.sec-label { font-size: 0.58rem; letter-spacing: 0.42em; text-transform: uppercase; color: #888884 !important; margin-bottom: 0.5rem; }
+.sec-title { font-family: Georgia, serif; font-size: clamp(1.4rem, 4vw, 1.9rem); font-weight: 300; line-height: 1.25; color: #1A1A18 !important; margin-bottom: 0.8rem; }
+.divider { width: 32px; height: 1px; background: #BEBEBA; margin: 0.8rem 0 1.3rem; }
+
+/* ── ABOUT ── */
+.about-p { font-size: 0.87rem; line-height: 2.1; color: #444440 !important; margin-bottom: 0.8rem; }
+.about-list { list-style: none; margin-top: 1.2rem; }
+.about-list li { display: flex; align-items: flex-start; gap: 0.9rem; font-size: 0.84rem; padding: 0.6rem 0; border-bottom: 1px solid #EEEEEC; color: #444440 !important; line-height: 1.7; }
+.about-list li:last-child { border-bottom: none; }
+.num { font-family: Georgia, serif; font-size: 0.65rem; color: #BEBEBA !important; flex-shrink: 0; margin-top: 0.15rem; }
+
+/* ── STEPS ── */
+.steps { margin-top: 1.8rem; }
+.step { display: flex; gap: 1.4rem; padding: 1.3rem 0; border-bottom: 1px solid #EEEEEC; align-items: flex-start; }
+.step:last-child { border-bottom: none; }
+.step-n { font-family: Georgia, serif; font-size: 2rem; font-style: italic; color: #BEBEBA !important; width: 44px; flex-shrink: 0; text-align: center; padding-top: 0.1rem; line-height: 1; }
+.step-r { flex: 1; }
+.step-r h3 { font-size: 0.9rem; letter-spacing: 0.07em; color: #1A1A18 !important; margin-bottom: 0.4rem; font-weight: 500; }
+.step-r p { font-size: 0.81rem; line-height: 1.9; color: #444440 !important; }
+.step-badge { display: inline-block; margin-top: 0.5rem; font-size: 0.68rem; color: #666660 !important; background: #EEEEEC !important; padding: 0.2rem 0.65rem; letter-spacing: 0.08em; }
+.step-note { display: block; margin-top: 0.5rem; font-size: 0.72rem; color: #888884 !important; letter-spacing: 0.07em; }
+
+/* ── NOTICE ── */
+.notice-banner { background: #2E2E2C !important; color: #FFFFFF !important; padding: 0.85rem 1.4rem; font-size: 0.76rem; letter-spacing: 0.1em; margin-bottom: 1.6rem; }
+.cards { display: flex; flex-direction: column; gap: 1px; background: #E0E0DE; }
+.card { padding: 1.4rem 1.6rem; background: #FFFFFF !important; }
+.card.bg2 { background: #F8F8F6 !important; }
+.card.bg-warn { background: #FBF8F0 !important; }
+.card h4 { font-size: 0.67rem; letter-spacing: 0.2em; text-transform: uppercase; color: #888884 !important; margin-bottom: 0.8rem; padding-bottom: 0.6rem; border-bottom: 1px solid #EEEEEC; }
+.card.bg-warn h4 { color: #7a6010 !important; border-bottom-color: rgba(212,176,96,0.3); }
+.card ul { list-style: none; }
+.card ul li { font-size: 0.83rem; line-height: 2; color: #444440 !important; padding-left: 1.1rem; position: relative; }
+.card ul li::before { content: ‘—’; position: absolute; left: 0; color: #BEBEBA; }
+.card .tip { margin-top: 0.8rem; font-size: 0.76rem; padding: 0.55rem 0.9rem; background: rgba(212,176,96,0.1) !important; color: #7a6010 !important; line-height: 1.8; border-left: 2px solid #D4B060; }
+
+/* ── FAQ ── */
+.faq-item { border-bottom: 1px solid #EEEEEC; padding: 1.1rem 0; cursor: pointer; }
+.faq-item:last-child { border-bottom: none; }
+.faq-q { display: flex; justify-content: space-between; align-items: center; font-size: 0.86rem; color: #444440 !important; font-weight: 500; line-height: 1.6; }
+.faq-icon { font-size: 0.95rem; color: #BEBEBA !important; transition: transform 0.3s; flex-shrink: 0; margin-left: 1rem; }
+.faq-item.open .faq-icon { transform: rotate(45deg); color: #1A1A18 !important; }
+.faq-a { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; font-size: 0.82rem; line-height: 2.1; color: #666660 !important; }
+.faq-item.open .faq-a { max-height: 260px; padding-top: 0.8rem; }
+
+/* ── FOOTER ── */
+.footer { background: #1A1A18 !important; color: #FFFFFF !important; padding: 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+.footer-brand { font-family: Georgia, serif; font-size: 1.1rem; letter-spacing: 0.3em; color: rgba(255,255,255,0.75) !important; }
+.footer p { font-size: 0.68rem; letter-spacing: 0.12em; color: rgba(255,255,255,0.35) !important; line-height: 2; text-align: right; }
+
+.sep { height: 1px; background: #E8E8E6; }
+</style>
+
+</head>
+<body>
+
+<!-- HERO -->
+
+<div class="hero">
+  <div class="hero-tag">ZAIHOME &nbsp;·&nbsp; Wearable Nail Custom</div>
+  <h1>穿戴甲<br><em>帶圖訂製</em></h1>
+  <p class="hero-sub">
+    傳送款式圖 ＆ 甲型 ＆ 尺碼<br>
+    ZAIHOME 為你打造獨一無二的指尖藝術
+  </p>
+</div>
+
+<!-- LINE -->
+
+<div class="line-tiny">
+  <div class="lt-dot"></div>
+  <span class="lt-text">LINE@&ensp;</span>
+  <span class="lt-id">@754dmylx</span>
+</div>
+
+<!-- ABOUT -->
+
+<div class="sep" style="margin-top:1.8rem;"></div>
+<div class="sec-alt">
+  <div class="sec-label">About ZAIHOME</div>
+  <div class="sec-title">什麼是帶圖訂製穿戴甲？</div>
+  <div class="divider"></div>
+  <p class="about-p">穿戴甲是一種可重複穿戴、隨時拆卸的美甲方式，不傷自然甲、使用方便，深受忙碌女孩喜愛。</p>
+  <p class="about-p">ZAIHOME 帶圖訂製服務讓你把心目中的設計交給我，無論是 Pinterest 截圖、IG 靈感圖或自行繪製草稿，都能轉化為專屬你的指尖藝術。</p>
+  <ul class="about-list">
+    <li><span class="num">01</span>每副皆為手工製作，非機器大量生產</li>
+    <li><span class="num">02</span>量身取型，貼合你的甲型與尺碼</li>
+    <li><span class="num">03</span>複雜手繪、亮粉、立體裝飾皆可接受</li>
+    <li><span class="num">04</span>正確使用可重複配戴，環保又划算</li>
+    <li><span class="num">05</span>我們希望每一副都是你曾想一直戴的款式</li>
+  </ul>
+</div>
+
+<!-- PROCESS -->
+
+<div class="sec">
+  <div class="sec-label">How It Works</div>
+  <div class="sec-title">穿戴甲訂製流程</div>
+  <div class="divider"></div>
+  <div class="steps">
+    <div class="step">
+      <div class="step-n">01</div>
+      <div class="step-r">
+        <h3>傳送款式圖</h3>
+        <p>透過 LINE@ 傳送欲訂製款式圖、甲型及 10 指尺碼，越詳細越好。</p>
+        <span class="step-note">搜尋 LINE ID 加入後傳圖</span>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-n">02</div>
+      <div class="step-r">
+        <h3>客服溝通報價</h3>
+        <p>等待客服與您溝通款式細節，確認無誤後提供專屬報價。</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-n">03</div>
+      <div class="step-r">
+        <h3>蝦皮下單製作</h3>
+        <p>確認報價後至蝦皮本商品下單，備注設計需求，依排單順序開始製作。</p>
+        <div class="step-badge">約 3–10 日完成</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-n">04</div>
+      <div class="step-r">
+        <h3>拍照確認調整</h3>
+        <p>製作完成後拍照給你確認，提供 1 次調整機會，確保成品符合期待。</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-n">05</div>
+      <div class="step-r">
+        <h3>完成並出貨</h3>
+        <p>確認無誤後完成訂製，出貨並提供物流單號 💅</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- NOTICE -->
+
+<div class="sec-alt">
+  <div class="sec-label">Order Notice</div>
+  <div class="sec-title">訂製須知</div>
+  <div class="divider"></div>
+  <div class="notice-banner">📌&ensp; 下單前請詳閱，購買即視為同意以下所有內容</div>
+  <div class="cards">
+    <div class="card bg-warn">
+      <h4>⚠ 尺寸相關（最重要）</h4>
+      <ul>
+        <li>本店為「客製化商品」，尺寸需由買家自行測量提供</li>
+        <li>請務必依照教學正確測量「10 指甲面寬度」</li>
+        <li>若尺寸填寬錯誤，恕無法退換貨</li>
+        <li>如不確定尺寸，建議先購買「測量甲片」再訂製</li>
+      </ul>
+      <div class="tip">👉 寧可稍微大一點也不要過小</div>
+    </div>
+    <div class="card bg2">
+      <h4>訂製商品特性</h4>
+      <ul>
+        <li>每副皆為「手工製作」，非機器大量生產</li>
+        <li>可能存在些微差異（如：量染紋路、亮粉分佈）</li>
+        <li>與示意圖不會 100% 完全一致，但會保持整體風格</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4>製作時間</h4>
+      <ul>
+        <li>製作時間：約 3–10 天（不含假日 / 物流）</li>
+        <li>訂單依照排單順序製作，不接急單</li>
+        <li>特殊節日（過年 / 活動）時間可能延長</li>
+      </ul>
+    </div>
+
+```
+<div class="card bg-warn">
+  <h4>⚠ 退換貨政策（重點）</h4>
+  <ul>
+    <li>客製化商品「不適用 7 天鑑賞期」</li>
+    <li>不接受退換：尺寸不合（自行測量）、個人喜好、細節差異（手工正常範圍）</li>
+    <li>可協助處理：商品嚴重瑕疵、出貨錯誤</li>
+  </ul>
+  <div class="tip">📸 必須於收貨「48 小時內」提供開箱影片 / 照片</div>
+</div>
+<div class="card bg2">
+  <h4>使用保存與其他</h4>
+  <ul>
+    <li>避免長時間泡水、碰撞，配戴前保持甲面乾燥</li>
+    <li>正確使用可重複配戴</li>
+    <li>訂製商品無法取消訂單（已排單製作）</li>
+    <li>如未回覆確認訊息，將依原設計直接出貨</li>
+    <li>下單即代表同意以上所有內容</li>
+  </ul>
+</div>
+```
+
+  </div>
+</div>
+
+<!-- FAQ -->
+
+<div class="sec">
+  <div class="sec-label">FAQ</div>
+  <div class="sec-title">常見問題</div>
+  <div class="divider"></div>
+  <div class="faq-item">
+    <div class="faq-q">可以傳哪種圖給你？<span class="faq-icon">+</span></div>
+    <div class="faq-a">任何參考圖都可以！Pinterest 截圖、IG 圖片、手繪草稿、文字描述皆可，越詳細越好。若有多張參考圖請一次傳送，並說明最希望保留的元素。</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">第一次不知道尺寸怎麼辦？<span class="faq-icon">+</span></div>
+    <div class="faq-a">建議先購買「測量甲片」確認尺寸後再訂製，也可於 LINE@ 詢問量測教學說明。記得寧可稍微大一點也不要選過小的尺寸。</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">製作需要多久時間？<span class="faq-icon">+</span></div>
+    <div class="faq-a">一般製作時間約 3–10 天（不含假日及物流時間），訂單依排單順序製作，不接急單。特殊節日前後可能延長，建議提早預訂。</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">成品和示意圖差很多怎麼辦？<span class="faq-icon">+</span></div>
+    <div class="faq-a">手工製作每副皆有些微差異（如量染紋路、亮粉分佈），屬正常範圍。製作完成後會拍照給你確認，並提供一次調整機會。</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">可以退換貨嗎？<span class="faq-icon">+</span></div>
+    <div class="faq-a">客製化商品不適用 7 天鑑賞期。若有商品嚴重瑕疵或出貨錯誤，請於收貨 48 小時內提供開箱影片 / 照片透過蝦皮聯絡我們處理。</div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+
+<div class="footer">
+  <div class="footer-brand">ZAIHOME</div>
+  <div>
+    <p>穿戴甲帶圖客製化訂製服務</p>
+    <p>LINE@ 傳圖詢價 → 蝦皮下單 → 安心收貨</p>
+  </div>
+</div>
+
+<script>
+  document.querySelectorAll('.faq-item').forEach(item => {
+    item.querySelector('.faq-q').addEventListener('click', () => {
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+</script>
+
+</body>
+</html>
